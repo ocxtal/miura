@@ -54,6 +54,6 @@ if __name__ == '__main__':
 
 	drawing = dxf.drawing()
 	plot(drawing, x, y, opt.xdiv, opt.ydiv, opt.t, [10, 10])
-	drawing.save_to_fileobj(sys.stdout)
+	drawing.save_to_fileobj(open(opt.o, "w") if opt.o is not None else sys.stdout)
 
 
