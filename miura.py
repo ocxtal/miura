@@ -1,9 +1,7 @@
 #! /usr/bin/env python
 # encoding: utf-8
 
-
 from dxfwrite import DXFEngine as dxf
-from math import floor
 
 def plot(drawing, x, y, xdiv, ydiv, tan, ofs):
 
