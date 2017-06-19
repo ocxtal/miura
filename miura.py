@@ -1,9 +1,7 @@
 #! /usr/bin/env python
 # encoding: utf-8
 
-
 from dxfwrite import DXFEngine as dxf
-from math import floor
 
 def plot(drawing, x, y, xdiv, ydiv, tan, ofs):
 
@@ -54,6 +52,6 @@ if __name__ == '__main__':
 
 	drawing = dxf.drawing()
 	plot(drawing, x, y, opt.xcnt, opt.ycnt, opt.t, [10, 10])
-	drawing.save_to_fileobj(sys.stdout)
+	drawing.save_to_fileobj(open(opt.o, "w") if opt.o is not None else sys.stdout)
 
 
