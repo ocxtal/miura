@@ -39,9 +39,9 @@ if __name__ == '__main__':
 	import sys
 	from optparse import OptionParser
 	p = OptionParser(usage = "python miura.py <width> <height> > out.dxf # all dimensions are in millimeters")
-	p.add_option("-t", "--tan", dest = "t", help = "tangent", default = 0.1)
-	p.add_option("-x", "--xcnt", dest = "xcnt", help = "x (width) splitting count", default = 5)
-	p.add_option("-y", "--ycnt", dest = "ycnt", help = "y (height) splitting count", default = 3)
+	p.add_option("-t", "--tan", dest = "t", help = "tangent", type = "float", default = 0.1)
+	p.add_option("-x", "--xcnt", dest = "xcnt", help = "x (width) splitting count", type = "int", default = 5)
+	p.add_option("-y", "--ycnt", dest = "ycnt", help = "y (height) splitting count", type = "int", default = 3)
 	p.add_option("-o", "--output", dest = "o", help = "output file name")
 
 	(opt, args) = p.parse_args()
@@ -53,7 +53,7 @@ if __name__ == '__main__':
 	filename = opt.o
 
 	drawing = dxf.drawing()
-	plot(drawing, x, y, opt.xdiv, opt.ydiv, opt.t, [10, 10])
+	plot(drawing, x, y, opt.xcnt, opt.ycnt, opt.t, [10, 10])
 	drawing.save_to_fileobj(sys.stdout)
 
 
